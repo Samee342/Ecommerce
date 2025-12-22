@@ -1,0 +1,6 @@
+export const HOME_ROUTE = "/";
+export const PRODUCTS_ROUTE = "/products";
+export const POPULAR_ROUTE = "/popular";
+export const CATEGORIES_ROUTE = "/categories";
+export const LOGIN_ROUTE = "/login";
+export const REGISTER_ROUTE = "/register";
