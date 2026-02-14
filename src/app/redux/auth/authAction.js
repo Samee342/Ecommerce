@@ -7,7 +7,7 @@ export const loginUser = createAsyncThunk(
     try {
       const response = await login(data);
 
-      localStorage.setItem("authtoken", response.data?.authToken);
+      localStorage.setItem("authToken", response.data?.authToken);
 
       return response.data;
     } catch (error) {
@@ -22,7 +22,7 @@ export const registerUser = createAsyncThunk(
     try {
       const response = await signup(data);
 
-      localStorage.setItem("authtoken", response.data?.authToken);
+      localStorage.setItem("authToken", response.data?.authToken);
 
       return response.data;
     } catch (error) {

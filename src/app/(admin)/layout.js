@@ -14,19 +14,15 @@ const AdminLayout = ({ children }) => {
   const router = useRouter();
   useEffect(() => {
     if (!user) router.push(LOGIN_ROUTE);
-    if (!allowdedRoles) router.push(HOME_ROUTE);
+    if (!allowdedRoles) router.push(LOGIN_ROUTE);
   });
   if (!user || !allowdedRoles)
     return (
       <div className="flex justify-center py-20">
-        <Spinner className="w-12 h-12 fill-primary" />
+        <Spinner className="w-12 h-12 mt-2.5 fill-primary" />
       </div>
     );
-  return (
-    <div>
-      This is Admin Layout
-      {children}
-    </div>
-  );
+
+  return <div>{children}</div>;
 };
 export default AdminLayout;

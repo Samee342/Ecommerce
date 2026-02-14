@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import product from "../products/page.js";
 import { MdAddShoppingCart } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import placeholder from "@/app/assets/images/placeholder.png";
@@ -13,7 +12,7 @@ const Productcard = ({ product }) => {
       <div className="relative overflow-hidden">
         <Link href={`${PRODUCTS_ROUTE}/${product.id}`}>
           <Image
-            src={product.imageurls?.[0] ?? placeholder}
+            src={product.imageurls?.length ? product.imageurls[0] : placeholder}
             className="rounded-t-lg w-full h-48 object-cover hover:scale-105 transition-all duration-100"
             alt={product.name}
             height={300}
@@ -40,7 +39,7 @@ const Productcard = ({ product }) => {
         <div className="flex justify-between">
           <div>
             <span className="text-primary font-bold mr-1 text-lg">
-              ${product.name}
+              {product.price * 0.5}
             </span>
             <span className="line-through text-gray-500 text-sm">
               ${product.price}
@@ -52,18 +51,6 @@ const Productcard = ({ product }) => {
         </div>
       </div>
     </div>
-
-    // <div className="shadow rounded-xl border-gray-200 mx-2 py-3 px-2">
-    //   <h1 className="text-2xl bold">{product.title}</h1>
-    //   <div className="flex items-center gap-2">
-    //     <span className="text-sm bg-green-400 px-2 ">{product.brand}</span>
-    //     <span className="text-sm bg-blue-500 px-2">{product.category}</span>
-    //   </div>
-    //   <p className="text-lg">Rs.{product.price}</p>
-    //   <button className="border rounded-xl text-md text-white bg-blue-800 shadow py-2 px-2">
-    //     ADD to Cart+
-    //   </button>
-    // </div>
   );
 };
 

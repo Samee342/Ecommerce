@@ -16,7 +16,7 @@ const Productdetailpage = async ({ params, searchparams }) => {
     <div>
       <h1 className="text-3xl text-red-800"> product detail:{productId}</h1>
       <ul>
-        <li>Name:{product?.title}</li>
+        <li>Name:{product?.name}</li>
         <li>Description:{product?.description}</li>
         <li>Brand:{product?.brand}</li>
       </ul>

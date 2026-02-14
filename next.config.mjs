@@ -8,6 +8,11 @@ const nextConfig = {
         pathname: "/product-images/**",
       },
       {
+        protocol: "http",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
+      },
+      {
         protocol: "https",
         hostname: "res.cloudinary.com",
         pathname: "/**",
