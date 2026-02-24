@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import { MdAddShoppingCart } from "react-icons/md";
 import { FaStar } from "react-icons/fa";
 import placeholder from "@/app/assets/images/placeholder.png";
 import Link from "next/link";
-import { PRODUCTS_ROUTE } from "../constants/routes";
+import { PRODUCTS_ROUTE } from "../../constants/routes";
+import AddToCart from "./AddToCart";
 
 const Productcard = ({ product }) => {
   return (
@@ -45,9 +45,7 @@ const Productcard = ({ product }) => {
               ${product.price}
             </span>
           </div>
-          <button className="text-primary">
-            <MdAddShoppingCart />
-          </button>
+          <AddToCart product={product} />
         </div>
       </div>
     </div>

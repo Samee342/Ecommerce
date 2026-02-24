@@ -88,7 +88,7 @@ const ProductTable = () => {
                   setSortOrder(sortOrder == 1 ? -1 : 1);
                 }}
               >
-                Product
+                Product 
               </th>
               <th
                 scope="col"
@@ -111,7 +111,7 @@ const ProductTable = () => {
                   setSortOrder(sortOrder == 1 ? -1 : 1);
                 }}
               >
-                Price
+                Price 
               </th>
               <th
                 scope="col"
@@ -121,17 +121,17 @@ const ProductTable = () => {
                   setSortOrder(sortOrder == 1 ? -1 : 1);
                 }}
               >
-                Stock
+                Stock 
               </th>
               <th
-                //scope="col"
+                scope="col"
                 className="px-4 py-3 "
                 onClick={() => {
                   setSortBy("createdAt");
                   setSortOrder(sortOrder == 1 ? -1 : 1);
                 }}
               >
-                CreatedAt
+                CreatedAt 
                 <HiArrowsUpDown />
               </th>
               <th scope="col" className="px-4 py-3">

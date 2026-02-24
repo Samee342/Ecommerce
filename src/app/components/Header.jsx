@@ -2,9 +2,9 @@ import Link from "next/link";
 import React from "react";
 import Logo from "./Logo";
 import NavMenu from "./NavMenu";
-import { MdAddShoppingCart } from "react-icons/md";
 import AuthMenu from "./AuthMenu";
 import ToogleTheme from "./ToogleTheme";
+import CartButton from "./CartButton";
 
 const Header = () => {
   return (
@@ -15,8 +15,8 @@ const Header = () => {
 
           <NavMenu />
           <div className="flex items-center gap-3">
-            <MdAddShoppingCart />
             <ToogleTheme />
+            <CartButton />
             <AuthMenu />
           </div>
         </div>

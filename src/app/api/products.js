@@ -1,9 +1,12 @@
 import axios from "axios";
 import config from "../config";
 import api from "./api";
+import formatparams from "../helpers/formatparams";
 
 async function getproducts(searchParams) {
-  return await axios.get(`${config.apiURL}/api/products?${searchParams}`);
+  const query = formatparams(searchParams);
+
+  return await axios.get(`${config.apiURL}/api/products?${query}`);
 }
 async function createproducts(data) {
   return await api.post(`/api/products`, data);
