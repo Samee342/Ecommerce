@@ -2,13 +2,18 @@ import React from "react";
 
 async function getproductbyId(productId) {
   const res = await fetch(`http://localhost:5000/api/products/${productId}`);
-  const product = await res.json();
-  return product;
+  console.log("Status:", res.status);
+
+  const text = await res.text();
+  console.log("Response:", text);
+
+  return JSON.parse(text);
 }
 
-const Productdetailpage = async ({ params, searchparams }) => {
-  const productId = (await params).productId;
-  const query = await searchparams;
+const Productdetailpage = async ({ params, searchParams }) => {
+  const { productId } = await params; // ✅ FIX
+  console.log("productId:", productId);
+  const query = searchParams;
 
   const product = await getproductbyId(productId);
 

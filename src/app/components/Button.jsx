@@ -13,7 +13,7 @@ const Button = ({
     >
       {label}
       {loading && (
-        <Spinner className="w-10 h-10 fill-secondary absolute right-3 px-3 top-2.5" />
+        <Spinner className="w-10 h-10 fill-secondary absolute right-3 px-5 top-1" />
       )}
     </button>
   );

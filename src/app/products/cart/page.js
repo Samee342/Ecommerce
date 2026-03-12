@@ -2,12 +2,23 @@
 import Link from "next/link";
 import React from "react";
 import { MdSettings } from "react-icons/md";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import placeholder from "@/app/assets/images/placeholder.png";
+import { FiMinusCircle } from "react-icons/fi";
+import { FiPlusCircle } from "react-icons/fi";
+import {
+  clearCart,
+  decreaseQuantity,
+  increaseQuantity,
+  removeFromCart,
+} from "@/app/redux/cart/cartSlice";
+import RemoveFromCart from "../_components/RemoveFromCart";
+import Checkout from "../_components/Checkout";
 
 const cartPage = () => {
-  const { products } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const { products, totalPrice } = useSelector((state) => state.cart);
 
   return (
     <section className="py-4 mx-4  bg-white dark:bg-slate-800">
@@ -39,42 +50,75 @@ const cartPage = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product, index) => (
-              <tr
-                key={index}
-                className="bg-neutral-primary border-b border-default"
-              >
-                <th
-                  scope="row"
-                  className="px-6 py-4 font-medium text-heading whitespace-nowrap"
-                >
-                  <div className="flex items-center gap-2">
-                    <Image
-                      src={
-                        product.imageurls?.length
-                          ? product.imageurls[0]
-                          : placeholder
-                      }
-                      height={32}
-                      width={32}
-                      alt="no image"
-                      className="h-8 w-8 rounded object-cover"
-                    />
-                  </div>
-                  {product.name}
-                </th>
-                <td className="px-6 py-4">{product.brand}</td>
-                <td className="px-6 py-4">{product.category}</td>
-                <td className="px-6 py-4">Rs.{product.price}</td>
-                <td className="px-6 py-4">{product.quantity}</td>
-
-                <td className="px-6 py-4">
-                  <Link href={"#"}>Edit</Link>
+            {products.length == 0 ? (
+              <tr>
+                <td className="text-center text-xl py-2 " colSpan={6}>
+                  Cart is empty
                 </td>
               </tr>
-            ))}
+            ) : (
+              products.map((product, index) => (
+                <tr
+                  key={index}
+                  className="bg-neutral-primary border-b border-default"
+                >
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-heading whitespace-nowrap"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Image
+                        src={
+                          product.imageurls?.length
+                            ? product.imageurls[0]
+                            : placeholder
+                        }
+                        height={32}
+                        width={32}
+                        alt="no image"
+                        className="h-8 w-8 rounded object-cover"
+                      />
+                    </div>
+                    {product.name}
+                  </th>
+                  <td className="px-6 py-4">{product.brand}</td>
+                  <td className="px-6 py-4">{product.category}</td>
+                  <td className="px-6 py-4">Rs.{product.price}</td>
+                  <td className="px-6 py-4">
+                    <div className="flex items-center gap-1">
+                      <button
+                        className="text-lg"
+                        onClick={() => dispatch(decreaseQuantity(product))}
+                      >
+                        <FiMinusCircle />
+                      </button>
+                      <span>{product.quantity}</span>
+                      <button
+                        className="text-lg"
+                        onClick={() => dispatch(increaseQuantity(product))}
+                      >
+                        <FiPlusCircle />
+                      </button>
+                    </div>
+                  </td>
+
+                  <td className="px-6 py-4">
+                    <RemoveFromCart product={product} />
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
+      </div>
+      <div className="flex items-center justify-end py-4 gap-2">
+        <button
+          onClick={() => dispatch(clearCart())}
+          className="px-4 py-1 rounded-md bg-red-500 border border-gray-600 text-gray-800 hover:bg-purple-300 "
+        >
+          clearCart
+        </button>
+        <Checkout products={products} totalPrice={totalPrice} />
       </div>
     </section>
   );

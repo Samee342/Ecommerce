@@ -241,7 +241,7 @@ const ProductForm = ({ product, isEditing = false }) => {
       <Button
         label={isEditing ? "Edit Product" : "Add Product"}
         loading={loading}
-        className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-secondary rounded-lg focus:ring-4 focus:ring-secondary-200 dark:focus:ring-secondary-900 hover:bg-primary/50"
+        className="inline-flex items-center gap-1 px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-secondary rounded-lg focus:ring-4 focus:ring-secondary-200 dark:focus:ring-secondary-900 hover:bg-primary/50"
       />
     </form>
   );

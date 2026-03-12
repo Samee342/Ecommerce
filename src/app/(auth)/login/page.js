@@ -3,16 +3,15 @@ import { useForm } from "react-hook-form";
 import { EMAIL_REGEX } from "@/app/constants/regex";
 import Link from "next/link";
 import { HOME_ROUTE, REGISTER_ROUTE } from "@/app/constants/routes";
-import { login } from "@/app/api/auth";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import PasswordInput from "../_components/PasswordInput";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "@/app/redux/auth/authAction";
 import { useEffect } from "react";
-import Spinner from "@/app/components/Spinner";
 import Button from "@/app/components/Button";
 const loginpage = () => {
+  console.log("Login page rendered");
   const {
     register,
     handleSubmit,
@@ -24,6 +23,7 @@ const loginpage = () => {
   const { user, error, loading } = useSelector((state) => state.auth);
 
   function submitForm(data) {
+    console.log("formdata", data);
     dispatch(loginUser(data));
   }
   useEffect(() => {
@@ -113,9 +113,16 @@ const loginpage = () => {
             Forgot password?
           </Link>
         </div>
-        <Button loading={loading} label="Sign in" />
+        {/* <button type="submit">Sign in</button> */}
+
+        <Button
+          label="login"
+          loading={loading}
+          className=" gap-1 px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-secondary rounded-lg focus:ring-4 focus:ring-secondary-200 dark:focus:ring-secondary-900 hover:bg-primary/50"
+        />
+
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-          Don’t have an account yet?{" "}
+          Don’t have an account yet?
           <Link
             href={REGISTER_ROUTE}
             className="font-medium text-primary hover:underline dark:text-primary"

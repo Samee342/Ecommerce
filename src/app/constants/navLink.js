@@ -3,6 +3,7 @@ import {
   HOME_ROUTE,
   POPULAR_ROUTE,
   PRODUCTS_ROUTE,
+  ORDERS_ROUTE,
 } from "./routes";
 
 const navLink = [
@@ -13,6 +14,10 @@ const navLink = [
   {
     route: PRODUCTS_ROUTE,
     label: "Products",
+  },
+  {
+    route: ORDERS_ROUTE,
+    label: "Orders",
   },
   {
     route: POPULAR_ROUTE,

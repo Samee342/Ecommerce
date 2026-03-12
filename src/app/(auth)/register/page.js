@@ -7,7 +7,7 @@ import PasswordInput from "../_components/PasswordInput";
 import { useRouter } from "next/navigation";
 import { HOME_ROUTE, LOGIN_ROUTE } from "@/app/constants/routes";
 import { useDispatch, useSelector } from "react-redux";
-import registerUser from "@/app/redux/auth/authAction";
+import { registerUser } from "@/app/redux/auth/authAction";
 import Button from "@/app/components/Button";
 
 const Register = () => {
@@ -36,7 +36,7 @@ const Register = () => {
           city: data.city,
           province: data.province,
         },
-      })
+      }),
     );
 
     //   localStorage.setItem("authtoken", response.data?.authtoken);
@@ -241,7 +241,11 @@ const Register = () => {
             </Link>
           </label>
         </div>
-        <Button loading={loading} label=" Register new account" />
+        <Button
+          label="Register new account"
+          loading={loading}
+          className=" gap-1 px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-secondary rounded-lg focus:ring-4 focus:ring-secondary-200 dark:focus:ring-secondary-900 hover:bg-primary/50"
+        />
       </form>
     </div>
   );

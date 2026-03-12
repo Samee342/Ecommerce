@@ -1,4 +1,3 @@
-import Logo from "../components/Logo";
 import config from "../config";
 
 function AuthLayout({ children }) {
