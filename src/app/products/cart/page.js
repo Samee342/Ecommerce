@@ -16,7 +16,7 @@ import {
 import RemoveFromCart from "../_components/RemoveFromCart";
 import Checkout from "../_components/Checkout";
 
-const cartPage = () => {
+const CartPage = () => {
   const dispatch = useDispatch();
   const { products, totalPrice } = useSelector((state) => state.cart);
 
@@ -124,4 +124,4 @@ const cartPage = () => {
   );
 };
 
-export default cartPage;
+export default CartPage;

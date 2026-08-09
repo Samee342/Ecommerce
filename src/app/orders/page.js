@@ -19,7 +19,7 @@ const orderStatuses = [
   ORDER_STATUS_SHIPPED,
 ];
 
-const orderPage = () => {
+const OrderPage = () => {
   const searchParams = useSearchParams();
   const statusParams = searchParams?.get("status") || ORDER_STATUS_PENDING;
   const router = useRouter();
@@ -80,4 +80,4 @@ const orderPage = () => {
   );
 };
 
-export default orderPage;
+export default OrderPage;

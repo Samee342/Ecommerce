@@ -9,7 +9,7 @@ import { resetPassword } from "@/app/api/auth";
 import PasswordInput from "../_components/PasswordInput";
 import { useSearchParams } from "next/navigation";
 
-const resetpasswordPage = () => {
+const ResetPasswordPage = () => {
   const {
     register,
     handleSubmit,
@@ -108,4 +108,4 @@ const resetpasswordPage = () => {
   );
 };
 
-export default resetpasswordPage;
+export default ResetPasswordPage;

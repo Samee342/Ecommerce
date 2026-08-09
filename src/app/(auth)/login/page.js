@@ -15,7 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { loginUser } from "@/app/redux/auth/authAction";
 import { useEffect } from "react";
 import Button from "@/app/components/Button";
-const loginpage = () => {
+const LoginPage = () => {
   console.log("Login page rendered");
   const {
     register,
@@ -123,7 +123,7 @@ const loginpage = () => {
         <Button label="login" loading={loading} />
 
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-          Don’t have an account yet?
+          <span>Don&apos;t have an account yet?</span>{" "}
           <Link
             href={REGISTER_ROUTE}
             className="font-medium text-primary hover:underline dark:text-primary"
@@ -137,4 +137,4 @@ const loginpage = () => {
     //    </section>
   );
 };
-export default loginpage;
+export default LoginPage;
