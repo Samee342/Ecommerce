@@ -27,7 +27,7 @@ const AboutPage = () => {
           <h2 className="text-3xl font-bold mb-4">Our Story</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
             Started with a simple idea—to make online shopping easier, faster,
-            and more reliable—we've grown into a trusted destination for
+            and more reliable—we&apos;ve grown into a trusted destination for
             customers looking for quality products at competitive prices.
             <br />
             What began as a vision to simplify online shopping has evolved into
@@ -35,7 +35,7 @@ const AboutPage = () => {
             range of carefully selected products, secure payment options, and
             fast, dependable delivery. <br />
             We believe that shopping should be convenient, enjoyable, and
-            accessible to everyone. That's why we continuously expand our
+            accessible to everyone. That&apos;s why we continuously expand our
             product collection, partner with trusted suppliers, and focus on
             delivering exceptional customer service at every step of the
             journey.
@@ -99,7 +99,7 @@ const AboutPage = () => {
 
                 <ul className="space-y-3 text-sm text-gray-700">
                   <li>
-                    • Become Nepal's most trusted online shopping platform.
+                    • Become Nepal&apos;s most trusted online shopping platform.
                   </li>
                   <li>• Reach customers nationwide with fast delivery.</li>
                   <li>• Offer a diverse selection of quality products.</li>
