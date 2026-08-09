@@ -5,7 +5,6 @@ import formatparams from "../helpers/formatparams";
 
 async function getproducts(searchParams) {
   const query = formatparams(searchParams);
-
   return await axios.get(`${config.apiURL}/api/products?${query}`);
 }
 async function createproducts(data) {
@@ -13,6 +12,9 @@ async function createproducts(data) {
 }
 async function getproductById(id) {
   return await axios.get(`${config.apiURL}/api/products/${id}`);
+}
+async function getProductsCount() {
+  return await axios.get(`${config.apiURL}/api/products/count`);
 }
 async function updateproduct(id, data) {
   return await api.put(`/api/products/${id}`, data);
@@ -22,6 +24,7 @@ async function deleteproduct(id) {
 }
 export {
   getproducts,
+  getProductsCount,
   createproducts,
   getproductById,
   updateproduct,

@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 import { FaCogs } from "react-icons/fa";
-import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import { format } from "date-fns";
 import { useState } from "react";
 import Spinner from "@/app/components/Spinner";
@@ -21,13 +20,20 @@ const OrderTable = () => {
   const [sortBy, setSortBy] = useState("createdAt");
   const [sortOrder, setSortOrder] = useState(-1);
 
-  useEffect(() => {
+  const fetchOrder = async () => {
     setLoading(true);
-    getOrders()
-      .then((response) => setOrders(response.data))
-      .finally(() => {
-        setLoading(false);
-      });
+    try {
+      const response = await getOrders(sortBy, sortOrder);
+      setOrders(response.data);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchOrder();
   }, [sortBy, sortOrder]);
 
   return (
@@ -35,7 +41,7 @@ const OrderTable = () => {
       <div className="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
         <div className="flex items-center flex-1 space-x-4">
           <h5>
-            <span className="text-gray-500">All Products:</span>
+            <span className="text-gray-500 mr-2">All Products:</span>
             <span className="dark:text-white">{orders?.length}</span>
           </h5>
         </div>
@@ -43,7 +49,7 @@ const OrderTable = () => {
 
       <div className="overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
             <tr>
               <th scope="col" className="px-4 py-3">
                 SN
@@ -93,7 +99,7 @@ const OrderTable = () => {
                   </td>
                   <th
                     scope="row"
-                    className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                    className=" px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white"
                   >
                     {order.user?.name}
                   </th>
@@ -107,7 +113,7 @@ const OrderTable = () => {
                       {order.orderItems?.map((item, index) => (
                         <div key={index} className="flex items-center">
                           <RxDotFilled />
-                          <span className="font-medium text-d px-1">
+                          <span className="font-medium text-d mr-1 px-1">
                             {item.product.name}
                           </span>
                           ({item.quantity})
@@ -141,7 +147,11 @@ const OrderTable = () => {
                     </div>
                   </td>
                   <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <Action id={order._id} orderStatus={order.status} />
+                    <Action
+                      id={order._id}
+                      orderStatus={order.status}
+                      onUpdate={fetchOrder}
+                    />
                   </td>
                 </tr>
               ))

@@ -1,7 +1,6 @@
 import Productcard from "./_components/card";
 import { getproducts } from "../api/products";
 import SearchBar from "./_components/SearchBar";
-import filter from "./_components/FilterButton";
 import FilterButton from "./_components/FilterButton";
 
 const Products = async ({ searchParams }) => {
@@ -11,7 +10,7 @@ const Products = async ({ searchParams }) => {
   //console.log(response);
   return (
     <>
-      <div className="flex item-center justify-between">
+      <div className="flex item-center justify-between dark:text-white">
         <h1 className="text-2xl font-bold py-5 mb-5">Popular Products</h1>
         <div className="mb-5 flex items-center justify-between gap-2">
           <SearchBar />

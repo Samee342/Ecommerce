@@ -9,6 +9,13 @@ async function getOrders() {
 async function getOrdersByUser(status) {
   return await api.get(`/api/orders/user?status=${status}`);
 }
+async function getTopSellingProducts() {
+  return await api.get(`/api/orders/dashboard`);
+}
+async function getOrderStatusCount() {
+  return await api.get(`/api/orders/status-count`);
+}
+
 async function deleteOrder(id) {
   return await api.delete(`/api/orders/${id}`);
 }
@@ -28,6 +35,8 @@ export {
   createOrder,
   getOrders,
   getOrdersByUser,
+  getTopSellingProducts,
+  getOrderStatusCount,
   deleteOrder,
   updateOrder,
   payViaKhalti,

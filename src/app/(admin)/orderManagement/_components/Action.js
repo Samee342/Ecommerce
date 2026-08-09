@@ -11,23 +11,27 @@ import {
   ORDER_STATUS_SHIPPED,
 } from "@/app/constants/orderstatus";
 
-const Action = ({ id, orderStatus }) => {
+const Action = ({ id, orderStatus, onUpdate }) => {
   const [showModal, setshowModal] = useState(false);
   const [status, setStatus] = useState(orderStatus);
 
-  function updateOrderStatus() {
-    updateOrder(id, { status })
-      .then(() => {
-        toast.success(`Status updated:${status}`, { autoClose: 1500 });
-      })
-      .catch((error) => {
-        toast.error("Status updated failed", { autoClose: 1500 });
-      })
-      .finally(() => {
-        setshowModal(false);
-      });
-  }
+  const updateOrderStatus = async () => {
+    try {
+      await updateOrder(id, { status });
 
+      toast.success(`Status updated: ${status}`, {
+        autoClose: 1500,
+      });
+
+      onUpdate(); // <-- Refetch orders
+    } catch (error) {
+      toast.error("Status update failed", {
+        autoClose: 1500,
+      });
+    } finally {
+      setshowModal(false);
+    }
+  };
   return (
     <div className="flex items-center gap-2">
       <button onClick={() => setshowModal(true)}>

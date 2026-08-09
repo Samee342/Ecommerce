@@ -1,15 +1,19 @@
 import {
-  CATEGORIES_ROUTE,
   HOME_ROUTE,
-  POPULAR_ROUTE,
+  CONTACT_ROUTE,
   PRODUCTS_ROUTE,
   ORDERS_ROUTE,
+  ABOUT_ROUTE,
 } from "./routes";
 
 const navLink = [
   {
     route: HOME_ROUTE,
     label: "Home",
+  },
+  {
+    route: ABOUT_ROUTE,
+    label: "About",
   },
   {
     route: PRODUCTS_ROUTE,
@@ -20,12 +24,8 @@ const navLink = [
     label: "Orders",
   },
   {
-    route: POPULAR_ROUTE,
-    label: "popular",
-  },
-  {
-    route: CATEGORIES_ROUTE,
-    label: "categories",
+    route: CONTACT_ROUTE,
+    label: "Contact",
   },
 ];
 export default navLink;

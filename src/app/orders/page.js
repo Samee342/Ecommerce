@@ -45,7 +45,7 @@ const orderPage = () => {
     );
 
   return (
-    <section className="py-10">
+    <section className="py-10 dark:bg-slate-800 dark:text-white">
       <h1 className="text-3xl font-semibold mb-3">Order Items</h1>
       <div className="grid grid-cols-4 my-4 border-b border-gray-200">
         {orderStatuses.map((orderStatus) => (

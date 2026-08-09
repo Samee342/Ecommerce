@@ -8,11 +8,10 @@ import CartButton from "./CartButton";
 
 const Header = () => {
   return (
-    <header className="shadow sticky top-0 bg-[white]">
+    <header className="shadow sticky top-0 bg-[white] z-50  dark:bg-slate-800 dark:text-white ">
       <div className="container mx-auto p-4">
         <div className="flex justify-between items-center">
           <Logo />
-
           <NavMenu />
           <div className="flex items-center gap-3">
             <ToogleTheme />

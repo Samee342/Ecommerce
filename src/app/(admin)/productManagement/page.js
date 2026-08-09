@@ -1,14 +1,14 @@
 import React from "react";
 import ProductTable from "./_components/Table.js";
-import { getproducts } from "@/app/api/products";
 
 const ProductManagementPage = () => {
   return (
-    <section className="bg-gray-50 dark:bg-gray-900 py-3 sm:py-5">
-      <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
-        <ProductTable />
-      </div>
-    </section>
+    <div className="px-4 mt-10 mx-auto dark:text-white text:3xl pb-4 font-medium max-w-screen-2xl lg:px-12">
+      <h1 className="text-4xl dark:text-white font-medium pb-3">
+        Product Management
+      </h1>
+      <ProductTable />
+    </div>
   );
 };
 

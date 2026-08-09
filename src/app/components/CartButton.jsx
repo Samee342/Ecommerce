@@ -15,13 +15,13 @@ const CartButton = () => {
     >
       {/* Badge */}
       {products.length > 0 && (
-        <span className="absolute -top-1 -right-1 md:-top-2 md:-right-2 flex items-center justify-center bg-red-500 text-white text-[0.65rem] md:text-[0.75rem] font-bold rounded-full h-4 w-4 md:h-5 md:w-5">
+        <span className="absolute -top-1 -right-1 md:-top-1 md:-right-2 flex items-center justify-center bg-red-500 text-white text-[0.65rem] md:text-[0.75rem] font-bold rounded-full h-4 w-4 md:h-5 md:w-5">
           {products.length}
         </span>
       )}
 
       {/* Cart Icon */}
-      <MdAddShoppingCart className="w-6 h-6 md:w-7 md:h-7" />
+      <MdAddShoppingCart className="w-3 h-3 md:w-4 md:h-4" />
     </button>
   );
 };

@@ -7,7 +7,7 @@ const Logo = () => {
   const appNameparts = appName.split(" ");
   return (
     <div>
-      <div className="flex items-center hover:font-bold w-40">
+      <div className="flex items-center font-bold w-40">
         <span className="text-primary">{appNameparts[0]}</span>
         <span className="text-secondary">{appNameparts[1]}</span>
       </div>

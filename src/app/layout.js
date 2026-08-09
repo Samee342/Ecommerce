@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import AppProvider from "./redux/provider";
 import MainLayout from "@/layout/MainLayout";
 import ToastProvider from "./components/ToastProvider";
+import Footer from "./components/footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -19,7 +20,7 @@ export default function RootLayout({ children }) {
           <MainLayout>
             <Header />
             <main className="min-h-svh"> {children}</main>
-            <footer>this is footer</footer>
+            <Footer />
             <ToastProvider />
           </MainLayout>
         </AppProvider>

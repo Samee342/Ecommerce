@@ -8,7 +8,7 @@ const NavMenu = () => {
   const pathname = usePathname();
   return (
     <div>
-      <nav className="hidden md:flex gap-4">
+      <nav className="hidden md:flex md:justify-between gap-4 ">
         {navLink.map((navLink) => {
           const isactive =
             pathname === navLink.route ||

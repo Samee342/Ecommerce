@@ -8,9 +8,9 @@ import AddToCart from "./AddToCart";
 
 const Productcard = ({ product }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md">
+    <div className="bg-white rounded-lg shadow-md dark:bg-slate-800 dark:text-white">
       <div className="relative overflow-hidden">
-        <Link href={`${PRODUCTS_ROUTE}/${product.id}`}>
+        <Link href={`${PRODUCTS_ROUTE}/${product._id}`}>
           <Image
             src={product.imageurls?.length ? product.imageurls[0] : placeholder}
             className="rounded-t-lg w-full h-48 object-cover hover:scale-105 transition-all duration-100"

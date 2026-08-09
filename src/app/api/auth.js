@@ -11,4 +11,14 @@ async function login({ email, password }) {
 async function signup(data) {
   return axios.post(`${config.apiURL}/api/auth/register`, data);
 }
-export { login, signup };
+
+async function forgotPassword(data) {
+  return axios.post(`${config.apiURL}/api/auth/forgot-password`, data);
+}
+async function resetPassword(token, userId, data) {
+  return axios.post(
+    `${config.apiURL}/api/auth/reset-password?token=${token}&userId=${userId}`,
+    data,
+  );
+}
+export { login, signup, forgotPassword, resetPassword };

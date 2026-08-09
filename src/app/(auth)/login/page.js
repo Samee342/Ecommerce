@@ -2,7 +2,12 @@
 import { useForm } from "react-hook-form";
 import { EMAIL_REGEX } from "@/app/constants/regex";
 import Link from "next/link";
-import { HOME_ROUTE, REGISTER_ROUTE } from "@/app/constants/routes";
+import {
+  FORGET_PASSWORD_ROUTE,
+  FORGOT_PASSWORD_ROUTE,
+  HOME_ROUTE,
+  REGISTER_ROUTE,
+} from "@/app/constants/routes";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import PasswordInput from "../_components/PasswordInput";
@@ -107,7 +112,7 @@ const loginpage = () => {
             </div>
           </div>
           <Link
-            href="#"
+            href={FORGOT_PASSWORD_ROUTE}
             className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500"
           >
             Forgot password?
@@ -115,11 +120,7 @@ const loginpage = () => {
         </div>
         {/* <button type="submit">Sign in</button> */}
 
-        <Button
-          label="login"
-          loading={loading}
-          className=" gap-1 px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-secondary rounded-lg focus:ring-4 focus:ring-secondary-200 dark:focus:ring-secondary-900 hover:bg-primary/50"
-        />
+        <Button label="login" loading={loading} />
 
         <p className="text-sm font-light text-gray-500 dark:text-gray-400">
           Don’t have an account yet?

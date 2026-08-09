@@ -5,10 +5,11 @@ import { useForm } from "react-hook-form";
 import { EMAIL_REGEX } from "@/app/constants/regex";
 import PasswordInput from "../_components/PasswordInput";
 import { useRouter } from "next/navigation";
-import { HOME_ROUTE, LOGIN_ROUTE } from "@/app/constants/routes";
+import { HOME_ROUTE } from "@/app/constants/routes";
 import { useDispatch, useSelector } from "react-redux";
 import { registerUser } from "@/app/redux/auth/authAction";
 import Button from "@/app/components/Button";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const {
@@ -25,6 +26,9 @@ const Register = () => {
   const dispatch = useDispatch();
 
   async function submitForm(data) {
+    console.log("Submitting:", data);
+
+    console.log("user state:", user);
     dispatch(
       registerUser({
         name: data.name,
@@ -204,15 +208,11 @@ const Register = () => {
           <PasswordInput
             id="confirmpassword"
             {...register("confirmpassword", {
-              required: "confirm-Password is required",
-
-              minLength: {
-                value: 6,
-                message: "Password length must be greater than 6",
-              },
-              validate: (value) => {
-                value === password || "password do not match";
-              },
+              // <--- must match everywhere
+              required: "Confirm password is required",
+              minLength: { value: 6, message: "Password too short" },
+              validate: (value) =>
+                value === password || "Passwords do not match",
             })}
           />
         </div>
@@ -241,10 +241,11 @@ const Register = () => {
             </Link>
           </label>
         </div>
+
         <Button
           label="Register new account"
           loading={loading}
-          className=" gap-1 px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-secondary rounded-lg focus:ring-4 focus:ring-secondary-200 dark:focus:ring-secondary-900 hover:bg-primary/50"
+          className="px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-secondary rounded-lg focus:ring-4 focus:ring-secondary-200 dark:focus:ring-secondary-900 hover:bg-primary/50"
         />
       </form>
     </div>
