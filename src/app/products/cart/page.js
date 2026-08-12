@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import React from "react";
 import { MdSettings } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,11 +10,11 @@ import {
   clearCart,
   decreaseQuantity,
   increaseQuantity,
-  removeFromCart,
 } from "@/app/redux/cart/cartSlice";
 import RemoveFromCart from "../_components/RemoveFromCart";
 import Checkout from "../_components/Checkout";
 import { useRouter } from "next/navigation";
+import { LOGIN_ROUTE } from "@/app/constants/routes";
 
 const CartPage = () => {
   const dispatch = useDispatch();
