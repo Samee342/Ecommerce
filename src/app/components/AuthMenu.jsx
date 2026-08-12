@@ -5,7 +5,7 @@ import { FaUser } from "react-icons/fa";
 import PopupUser from "./PopupUser";
 import { useState } from "react";
 import { logout } from "@/app/redux/auth/authSlice";
-import { allowedAdminRoles } from "@/app/helpers/auth";
+import { allowededAdminRoles } from "@/app/helpers/auth";
 
 const AuthMenu = () => {
   const { user } = useSelector((state) => state.auth);
@@ -13,7 +13,7 @@ const AuthMenu = () => {
   const [showPopup, setShowPopup] = useState(false);
 
   // Check if user is admin
-  const isAdmin = allowedAdminRoles(user?.roles);
+  const isAdmin = allowededAdminRoles(user?.roles);
   // Normal user
   if (!isAdmin) {
     return (
