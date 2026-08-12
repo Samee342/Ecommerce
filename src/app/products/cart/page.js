@@ -118,11 +118,21 @@ const CartPage = () => {
       <div className="flex items-center justify-end py-4 gap-2">
         <button
           onClick={() => dispatch(clearCart())}
-          className="px-4 py-1 rounded-md bg-red-500 border border-gray-600 text-gray-800 hover:bg-purple-300 "
+          className="px-4 py-1 rounded-md bg-red-500 border border-gray-600 text-gray-800 hover:bg-purple-300"
         >
-          clearCart
+          Clear Cart
         </button>
-        <Checkout products={products} totalPrice={totalPrice} />
+
+        {user ? (
+          <Checkout products={products} totalPrice={totalPrice} />
+        ) : (
+          <button
+            onClick={() => router.push(LOGIN_ROUTE)}
+            className="px-4 py-1 rounded-md bg-blue-600 text-white hover:bg-blue-700"
+          >
+            Login to Checkout
+          </button>
+        )}
       </div>
     </section>
   );
