@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { FaUser } from "react-icons/fa";
 import PopupUser from "./PopupUser";
 import { useState } from "react";
-import { logout } from "@/app/redux/auth/authSlice";
+import { logoutUser } from "@/app/redux/auth/authSlice";
 import { allowededAdminRoles } from "@/app/helpers/auth";
 
 const AuthMenu = () => {
@@ -18,7 +18,7 @@ const AuthMenu = () => {
   if (!isAdmin) {
     return (
       <button
-        onClick={() => dispatch(logout())}
+        onClick={() => dispatch(logoutUser())}
         className="border-2 rounded-xl px-4 py-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition"
       >
         Logout
