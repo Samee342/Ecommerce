@@ -10,7 +10,7 @@ const PayViaKhalti = ({ order }) => {
       .then((response) => {
         const data = response.data;
 
-        window.open(data.payment_url, "_blank");
+        window.location.href = data.payment_url;
       })
       .catch((error) => {
         toast.error(error.response.data, { autoClose: 1500 });
